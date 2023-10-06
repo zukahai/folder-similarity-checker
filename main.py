@@ -1,4 +1,6 @@
 import codecs
+from gitignore_parser import parse_gitignore
+import os
 def similarities_file(file1, file2):
     s = read_file(file1)
     p = read_file(file2)
@@ -23,8 +25,14 @@ def read_file(path):
     # Đọc file bằng mã hóa UTF-8
     with codecs.open(path, 'r', encoding='utf-8') as file:
         java_code = file.read()
-
     return java_code
 
+def is_path_ignored(path_to_check, gitignore_file='ignore.txt'):
+    gitignore = parse_gitignore(gitignore_file)
 
-similarities_file('C:\\Users\HAIZUKA\\java\kkk\\src\model\\Student.java', 'C:\\Users\HAIZUKA\\java\kkk\\src\model\\People.java')
+    print(gitignore)
+
+    return gitignore(path_to_check)
+
+
+similarities_file('C:\\Users\HAIZUKA\\java\kkk\\src\model\\Student.java', 'C:\\Users\HAIZUKA\\java\kkk\\src\model\\Test.java')
