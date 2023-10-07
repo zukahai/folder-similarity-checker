@@ -33,7 +33,7 @@
 
 ### Cách sử dụng
 
-Tải [app.exe](./app.exe) và khởid động.
+Tải [app.exe](https://github.com/zukahai/check-similarities-between-folders/raw/main/app.exe) và khởid động.
 
 Giao diện chính của app
 
