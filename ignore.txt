@@ -1,5 +1,9 @@
 build
 dist
+.settings
+.classpath
+.project
+bin
 .git
 node_modules
 generate-directory-tree
