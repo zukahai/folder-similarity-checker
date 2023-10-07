@@ -31,6 +31,10 @@
 }
 ```
 
+### Cách sử dụng
+
+Tải [app.exe](./app.exe) và khởid động.
+
 Giao diện chính của app
 
 <p align="center"> <img src="./demo/demo1.png" alt="bg" /> </p>

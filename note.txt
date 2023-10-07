@@ -1,0 +1,3 @@
+export
+pip install pyinstaller
+pyinstaller --onefile app.py
