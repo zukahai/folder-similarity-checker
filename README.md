@@ -25,6 +25,8 @@
         "length2": 220,
         "rate": 1.0
     },
-    "mean_rate": 0.9839240751501066
+    "mean_rate": 0.9839240751501066,
+    "folder1": "kkk",
+    "folder2": "DHDN"
 }
 ```

@@ -13,4 +13,3 @@ data = {
     "a": 1
 }
 
-Util.write_json_utf8('test.json', data)

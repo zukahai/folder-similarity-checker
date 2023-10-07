@@ -2,6 +2,7 @@ import codecs
 from gitignore_parser import parse_gitignore
 import os
 from util import Util
+import time
 
 class HaiZuka:
     def __init__(self):
@@ -14,6 +15,8 @@ class HaiZuka:
             rate.append(self.json_result[file]['rate'])
         mean_rate = sum(rate)/len(rate)
         self.json_result['mean_rate'] = mean_rate
+        self.json_result['folder1'] = folder1.split('\\')[-1]
+        self.json_result['folder2'] = folder2.split('\\')[-1]
         return self.json_result
         
 
@@ -78,10 +81,15 @@ class HaiZuka:
     def is_path_ignored(path_to_check, gitignore_file='ignore.txt'):
         gitignore = parse_gitignore(gitignore_file)
         return gitignore(path_to_check)
+    
+    def write_json_utf8(self):
+        #tạo tên file yyyy-mm-dd_hh_mm_ss.json
+        file_name_time = 'results\\' + time.strftime("%Y-%m-%d_%H_%M_%S") + '.json'
+        Util.write_json_utf8(file_name_time, self.json_result)
 
 haizuka = HaiZuka()
 rs = haizuka.similarities_folder('C:\\Users\HAIZUKA\\java\kkk', 'C:\\Users\HAIZUKA\\java\DHDN')
 print(rs)
-Util.write_json_utf8('result.json', rs)
+haizuka.write_json_utf8()
 
 
