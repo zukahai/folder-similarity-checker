@@ -2,12 +2,20 @@ import codecs
 from gitignore_parser import parse_gitignore
 import os
 class HaiZuka:
-    @staticmethod
-    def similarities_folder(folder1, folder2):
-        HaiZuka.try_similarities(folder1, folder2)
+    def __init__(self):
+        self.json_result = {}
+    def similarities_folder(self, folder1, folder2):
+        self.try_similarities(folder1, folder2)
+        #trung bình rate
+        rate = []
+        for file in self.json_result:
+            rate.append(self.json_result[file]['rate'])
+        mean_rate = sum(rate)/len(rate)
+        self.json_result['mean_rate'] = mean_rate
+        return self.json_result
         
-    @staticmethod
-    def try_similarities(folder1, folder2):
+
+    def try_similarities(self, folder1, folder2):
         list_files = HaiZuka.read_folder(folder1)
         print(list_files)
         for file in list_files:
@@ -17,11 +25,12 @@ class HaiZuka:
             if os.path.isfile(folder1 + '/' + file) and os.path.isfile(folder2 + '/' + file):
                 print("File: ", file)
                 similaritie = HaiZuka.similarities_file(folder1 + '/' + file, folder2 + '/' + file)
+                self.json_result[file] = similaritie
                 print(similaritie)
             # kiểm tra file có phải 1 folder không
             elif os.path.isdir(folder1 + '/' + file) and os.path.isdir(folder2 + '/' + file):
                 print("Folder: ", file)
-                HaiZuka.try_similarities(folder1 + '/' + file, folder2 + '/' + file)
+                self.try_similarities(folder1 + '/' + file, folder2 + '/' + file)
 
 
     @staticmethod
@@ -49,7 +58,12 @@ class HaiZuka:
                 else:
                     a[i][j] = max(a[i - 1][j], a[i][j - 1])
         max_str = a[len(string1) - 1][len(string2) - 1]
-        return ((max_str / (len(string1) - 1)) + (max_str / (len(string2) - 1))) / 2
+        json = {}
+        json['similarity'] = max_str
+        json['length1'] = len(string1)
+        json['length2'] = len(string2)
+        json['rate'] = 2 * max_str / (len(string1) + len(string2) - 2)
+        return json
 
     @staticmethod
     def read_file(path):
@@ -63,5 +77,6 @@ class HaiZuka:
         gitignore = parse_gitignore(gitignore_file)
         return gitignore(path_to_check)
 
-
-HaiZuka.similarities_folder('C:\\Users\HAIZUKA\\java\kkk', 'C:\\Users\HAIZUKA\\java\DHDN')
+haizuka = HaiZuka()
+rs = haizuka.similarities_folder('C:\\Users\HAIZUKA\\java\kkk', 'C:\\Users\HAIZUKA\\java\DHDN')
+print(rs)
