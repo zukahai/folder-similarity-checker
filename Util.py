@@ -1,13 +1,16 @@
+import json
+
 class Util:
     def __init__(self):
         pass
-    def write_json_utf8(self, path, json):
-        with open(path, 'w', encoding='utf-8') as file:
-            file.write(json)
 
-json = {
+    @staticmethod
+    def write_json_utf8(path, data):  # Sửa tên biến thành "data"
+        with open(path, 'w', encoding='utf-8') as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+
+data = {
     "a": 1
 }
 
-u = Util()
-u.write_json_utf8('test.json', json)
+Util.write_json_utf8('test.json', data)

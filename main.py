@@ -1,7 +1,7 @@
 import codecs
 from gitignore_parser import parse_gitignore
 import os
-import json
+from util import Util
 
 class HaiZuka:
     def __init__(self):
@@ -78,14 +78,10 @@ class HaiZuka:
     def is_path_ignored(path_to_check, gitignore_file='ignore.txt'):
         gitignore = parse_gitignore(gitignore_file)
         return gitignore(path_to_check)
-    
-    def write_json_utf8(self, path, json):
-        with open(path, 'w', encoding='utf-8') as file:
-            file.write(json)
 
 haizuka = HaiZuka()
 rs = haizuka.similarities_folder('C:\\Users\HAIZUKA\\java\kkk', 'C:\\Users\HAIZUKA\\java\DHDN')
 print(rs)
-haizuka.write_json_utf8('result.json', rs)
+Util.write_json_utf8('result.json', rs)
 
 
