@@ -80,6 +80,9 @@ class HaiZuka:
 
     @staticmethod
     def is_path_ignored(path_to_check, gitignore_file='ignore.txt'):
+        # kiểm tra file có tồn tại không
+        if os.path.isfile(gitignore_file):
+            return []
         gitignore = parse_gitignore(gitignore_file)
         return gitignore(path_to_check)
     

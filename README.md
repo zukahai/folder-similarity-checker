@@ -33,7 +33,9 @@
 
 ### Cách sử dụng
 
-Tải [app.exe](https://github.com/zukahai/check-similarities-between-folders/raw/main/app.exe) và khởid động.
+Tải [similary.zip](https://github.com/zukahai/check-similarities-between-folders/raw/main/similary.zip) và giải nén.
+
+Chạy app.exe
 
 Giao diện chính của app
 
