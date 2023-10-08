@@ -1,6 +1,6 @@
 <div align="center">
 
-# Kiểm tra tính tương đông của 2 folder
+# Kiểm tra tính tương đồng của 2 thư mục
 </div>
 
 ### Kết quả dự kiến
