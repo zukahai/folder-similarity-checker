@@ -85,6 +85,7 @@ class App:
         haizuka = HaiZuka()
         similarities = haizuka.similarities_folder(self.folder1_path, self.folder2_path)
         self.set_textarea(similarities)
+        haizuka.write_json_utf8()
         
 
     def set_textarea(self, text):

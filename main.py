@@ -41,8 +41,8 @@ class HaiZuka:
 
     @staticmethod
     def read_folder(folder):
-        s = os.listdir(folder)
-        return s
+        list_files = os.listdir(folder)
+        return list_files
 
     @staticmethod
     def similarities_file(file1, file2):
