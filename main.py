@@ -3,6 +3,7 @@ from gitignore_parser import parse_gitignore
 import os
 from util import Util
 import time
+import re
 
 class HaiZuka:
     def __init__(self):
@@ -48,14 +49,17 @@ class HaiZuka:
     def similarities_file(file1, file2):
         s = HaiZuka.read_file(file1)
         p = HaiZuka.read_file(file2)
-        similarities =  HaiZuka.similarities_string(s, p)
+        words_s = re.findall(r'\b\w+\b', s)
+        words_p = re.findall(r'\b\w+\b', p)
+        print(len(s), len(p))
+        similarities =  HaiZuka.similarities_string(words_s, words_p)
         return similarities
 
     # Hàm tìm chuỗi con chung dài nhất
     @staticmethod
     def similarities_string(string1, string2):
-        string1 = "x" + string1
-        string2 = "x" + string2
+        string1 = ['x'] + string1
+        string2 = ['x'] + string2
         a = [[0 for _ in range(len(string2))] for _ in range(len(string1))]
         for i in range(1, len(string1)):
             for j in range(1, len(string2)):
