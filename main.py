@@ -8,12 +8,14 @@ import re
 class HaiZuka:
     def __init__(self):
         self.json_result = {}
+        self.json_result['files'] = {}
     def similarities_folder(self, folder1, folder2):
         self.try_similarities(folder1, folder2, '')
         #trung bình rate
         rate = []
-        for file in self.json_result:
-            rate.append(self.json_result[file]['rate'])
+        print(self.json_result)
+        for file in self.json_result['files']:
+            rate.append(self.json_result['files'][file]['rate'])
 
         mean_rate = 0 if len(rate) == 0 else sum(rate)/len(rate)
         self.json_result['mean_rate'] = mean_rate
@@ -32,7 +34,7 @@ class HaiZuka:
             if os.path.isfile(folder1 + '/' + file) and os.path.isfile(folder2 + '/' + file):
                 print("File: ", file)
                 similaritie = HaiZuka.similarities_file(folder1 + '/' + file, folder2 + '/' + file)
-                self.json_result[prefix + '/' + file] = similaritie
+                self.json_result['files'][prefix + '/' + file] = similaritie
                 print(similaritie)
             # kiểm tra file có phải 1 folder không
             elif os.path.isdir(folder1 + '/' + file) and os.path.isdir(folder2 + '/' + file):

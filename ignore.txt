@@ -19,3 +19,4 @@ generate-directory-tree
 *.jpg
 *.zip
 *.pyc
+*.ini

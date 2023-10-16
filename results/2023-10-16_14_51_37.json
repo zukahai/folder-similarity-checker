@@ -1,0 +1,37 @@
+{
+    "files": {
+        "/src/model/Menu.java": {
+            "similarity": 577,
+            "length1": 594,
+            "length2": 594,
+            "rate": 0.9730185497470489
+        },
+        "/src/model/Student.java": {
+            "similarity": 198,
+            "length1": 199,
+            "length2": 199,
+            "rate": 1.0
+        },
+        "/src/model/StudentBA.java": {
+            "similarity": 165,
+            "length1": 166,
+            "length2": 166,
+            "rate": 1.0
+        },
+        "/src/model/StudentIT.java": {
+            "similarity": 165,
+            "length1": 166,
+            "length2": 166,
+            "rate": 1.0
+        },
+        "/src/model/StudentManager.java": {
+            "similarity": 471,
+            "length1": 472,
+            "length2": 472,
+            "rate": 1.0
+        }
+    },
+    "mean_rate": 0.9946037099494098,
+    "folder1": "A",
+    "folder2": "StudentManagement"
+}
