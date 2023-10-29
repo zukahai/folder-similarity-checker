@@ -33,9 +33,7 @@
 
 ### Cách sử dụng
 
-Tải [similary.zip](https://github.com/zukahai/check-similarities-between-folders/raw/main/similary.zip) và giải nén.
-
-Chạy app.exe
+Tải [check-similarities-between-folders setup.exe](https://github.com/zukahai/check-similarities-between-folders/raw/main/check-similarities-between-folders%20setup.exe) và tiến hành cài đặt để sử dụng.
 
 Giao diện chính của app
 
