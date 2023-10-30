@@ -93,6 +93,11 @@ class HaiZuka:
         #tạo tên file yyyy-mm-dd_hh_mm_ss.json
         file_name_time = 'results\\' + time.strftime("%Y-%m-%d_%H_%M_%S") + '.json'
         Util.write_json_utf8(file_name_time, self.json_result)
+    
+    def write_json_utf8_2(self, json_result):
+        #tạo tên file yyyy-mm-dd_hh_mm_ss.json
+        file_name_time = 'results\\' + time.strftime("%Y-%m-%d_%H_%M_%S") + '.json'
+        Util.write_json_utf8(file_name_time, json_result)
 
 # haizuka = HaiZuka()
 # rs = haizuka.similarities_folder('C:\\Users\HAIZUKA\\java\kkk', 'C:\\Users\HAIZUKA\\java\DHDN')
