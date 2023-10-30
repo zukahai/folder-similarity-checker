@@ -30,8 +30,8 @@ Phần mềm "Folder Similarity Checker" có các chức năng chính sau:
 
 Nếu bạn có bất kỳ câu hỏi hoặc phản hồi nào về phần mềm "Folder Similarity Checker," xin vui lòng liên hệ với chúng tôi tại:
 
-- Email: example@email.com
-- Trang web: [Liên kết đến trang web của bạn, nếu có]
+- Email: duchai2712@gmail.com
+- Website: https:/facebook.com/chiatayde
 
 Cảm ơn bạn đã sử dụng "Folder Similarity Checker." Chúng tôi hy vọng rằng nó sẽ giúp bạn quản lý và kiểm tra tính tương đồng giữa các thư mục một cách thuận tiện.
 

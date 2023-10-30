@@ -270,6 +270,7 @@
   ('random',
    'C:\\Users\\HAIZUKA\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\random.py',
    'PYMODULE'),
+  ('scan', 'G:\\check-similarities-between-folders\\scan.py', 'PYMODULE'),
   ('selectors',
    'C:\\Users\\HAIZUKA\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\selectors.py',
    'PYMODULE'),

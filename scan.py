@@ -7,6 +7,7 @@ haizuka = HaiZuka()
 path = 'C:\\Users\\HAIZUKA\\Downloads\\ex\\ex'
 
 def check_folder(path):
+    haizuka = HaiZuka()
     list_folder = haizuka.read_folder(path)
 
     json_result = {}
@@ -25,6 +26,6 @@ def check_folder(path):
     #sắp xếp theo mean_rate
     json_result = sorted(json_result.items(), key=lambda x: x[1]['mean_rate'], reverse=True)
 
-    haizuka.write_json_utf8_2(json_result)
+    return json_result
 if __name__ == '__main__':
     check_folder(path)
