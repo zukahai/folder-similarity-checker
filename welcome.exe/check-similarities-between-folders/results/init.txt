@@ -1,0 +1,5 @@
+If the results are not displayed here, please try one of the following two methods:
+
+Method 1: Run the application with administrator privileges.
+
+Method 2: Change the installation directory.

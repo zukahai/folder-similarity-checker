@@ -4,6 +4,8 @@ import json
 from main import HaiZuka
 from scan import check_folder
 import os
+import ctypes
+import sys
 
 class App:
     def __init__(self, root):
@@ -165,10 +167,16 @@ class App:
 
         if self.folder1_path != "" or self.folder2_path != "":
             self.compare_button.config(state=tk.DISABLED)
-
-        
+   
 
 if __name__ == "__main__":
+    def run_as_admin():
+        if ctypes.windll.shell32.IsUserAnAdmin() == 0:
+            # If not running as administrator, relaunch as administrator
+            ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+            sys.exit()
+    run_as_admin()
     root = tk.Tk()
     app = App(root)
     root.mainloop()
+
