@@ -20,3 +20,7 @@ generate-directory-tree
 *.zip
 *.pyc
 *.ini
+*.woff
+*.woff2
+*.ttf
+*.eot

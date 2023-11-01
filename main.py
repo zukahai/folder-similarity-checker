@@ -54,12 +54,14 @@ class HaiZuka:
         words_s = re.findall(r'\b\w+\b', s)
         words_p = re.findall(r'\b\w+\b', p)
         print(len(s), len(p))
-        similarities =  HaiZuka.similarities_string(words_s, words_p)
+        similarities =  HaiZuka.similarities_words(words_s, words_p)
         return similarities
 
     # Hàm tìm chuỗi con chung dài nhất
     @staticmethod
-    def similarities_string(string1, string2):
+    def similarities_words(string1, string2):
+        if string1 == string2:
+            return {'similarity': 1, 'length1': len(string1), 'length2': len(string2), 'rate': 1}
         string1 = ['x'] + string1
         string2 = ['x'] + string2
         a = [[0 for _ in range(len(string2))] for _ in range(len(string1))]
