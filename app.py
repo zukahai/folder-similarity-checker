@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import json
 from main import HaiZuka
+from util import Util
 from scan import check_folder
 import os
 import ctypes
@@ -9,6 +10,7 @@ import sys
 
 class App:
     def __init__(self, root):
+        Util.info(5)
         self.root = root
         self.root.title("Kiểm tra thư mục tương đồng | HaiZuka")
         self.root.geometry("425x500")
