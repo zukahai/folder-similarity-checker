@@ -1,9 +1,33 @@
 import json
 import random
+import codecs
+from docx import Document
 
 class Util:
     def __init__(self):
         pass
+
+    @staticmethod
+    def read_file(path):
+        if (Util.is_word_file(path)):
+            return Util.read_word_file(path)
+        else:
+            return Util.read_file_default(path)
+    
+    @staticmethod
+    def read_file_default(path):
+        with codecs.open(path, 'r', encoding='utf-8') as file:
+            java_code = file.read()
+        return java_code
+    
+    @staticmethod
+    def read_word_file(path):
+        doc = Document(path)
+        text = ""
+        for paragraph in doc.paragraphs:
+            text += paragraph.text + "\n"
+        print(text)
+        return text
 
     @staticmethod
     def write_json_utf8(path, data):  # Sửa tên biến thành "data"
@@ -11,7 +35,11 @@ class Util:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
     @staticmethod
-    def info(info):
+    def is_word_file(file_path):
+        return file_path.lower().endswith(".docx")
+
+    @staticmethod
+    def info():
         #https://patorjk.com/software/taag/
         arr = [0] * 100
         hz_pattern = [
@@ -127,7 +155,7 @@ class Util:
                                                                                 
 '''
 
-        print(arr[random.randint(0, 1)])
+        print(arr[random.randint(0, 5)])
 
 data = {
     "a": 1
