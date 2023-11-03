@@ -1,4 +1,3 @@
-import codecs
 from gitignore_parser import parse_gitignore
 import os
 from util import Util
@@ -49,8 +48,8 @@ class HaiZuka:
 
     @staticmethod
     def similarities_file(file1, file2):
-        s = HaiZuka.read_file(file1)
-        p = HaiZuka.read_file(file2)
+        s = Util.read_file(file1)
+        p = Util.read_file(file2)
         words_s = re.findall(r'\b\w+\b', s)
         words_p = re.findall(r'\b\w+\b', p)
         print(len(s), len(p))
@@ -79,12 +78,6 @@ class HaiZuka:
         json['rate'] = 2 * max_str / (len(string1) + len(string2) - 2)
         return json
 
-    @staticmethod
-    def read_file(path):
-        # Đọc file bằng mã hóa UTF-8
-        with codecs.open(path, 'r', encoding='utf-8') as file:
-            java_code = file.read()
-        return java_code
 
     @staticmethod
     def is_path_ignored(path_to_check, gitignore_file='ignore.txt'):

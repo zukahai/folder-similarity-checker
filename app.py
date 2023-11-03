@@ -10,7 +10,7 @@ import sys
 
 class App:
     def __init__(self, root):
-        Util.info(5)
+        Util.info()
         self.root = root
         self.root.title("Kiểm tra thư mục tương đồng | HaiZuka")
         self.root.geometry("425x500")
