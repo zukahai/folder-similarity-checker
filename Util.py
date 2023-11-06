@@ -51,7 +51,7 @@ class Util:
             img = Image.open(image_path)
             width, height = img.size
             pixel_matrix = []
-            length_taget = 1000
+            length_taget = 5000
             step = 1 if math.sqrt((width * height) // length_taget) < 1 else math.sqrt((width * height) // length_taget)
             step = (int) (step)
             for y in range(0, height, step):
