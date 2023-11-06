@@ -9,10 +9,12 @@ class Util:
 
     @staticmethod
     def read_file(path):
-        if (Util.is_word_file(path)):
-            return Util.read_word_file(path)
-        else:
+        try:
+            if (Util.is_word_file(path)):
+                return Util.read_word_file(path)
             return Util.read_file_default(path)
+        except:
+            return ""
     
     @staticmethod
     def read_file_default(path):
