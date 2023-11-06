@@ -13,7 +13,7 @@ def check_folder(path):
     json_result = {}
 
     list_folder = [x for x in list_folder if os.path.isdir(os.path.join(path, x))]
-    print(list_folder)
+    print('Folders: ', list_folder)
 
     for i in range(0, len(list_folder) - 1):
         for j in range(i + 1, len(list_folder)):

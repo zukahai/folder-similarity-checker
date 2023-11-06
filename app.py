@@ -7,15 +7,15 @@ from scan import check_folder
 import os
 import ctypes
 import sys
+from PIL import Image, ImageTk
 
 class App:
     def __init__(self, root):
-        Util.info()
         self.root = root
         self.root.title("Kiểm tra thư mục tương đồng | HaiZuka")
-        self.root.geometry("425x500")
-        self.root.resizable(False, False)
-        self.root.geometry("425x550+{}+{}".format(self.root.winfo_screenwidth() // 2 - 425 // 2, self.root.winfo_screenheight() // 2 - 500 // 2))
+        self.root.geometry("600x570")
+        # self.root.resizable(False, False)
+        self.root.geometry("600x570+{}+{}".format(self.root.winfo_screenwidth() // 2 - 600 // 2, self.root.winfo_screenheight() // 2 - 600 // 2))
 
         self.folder1_path = ""
         self.folder2_path = ""
@@ -30,7 +30,33 @@ class App:
         self.create_ui()
 
     def create_ui(self):
-        self.text_area = tk.Text(self.root, wrap=tk.WORD, height=26, width=50)
+        Util.info()
+
+        select_icon = Image.open("./assets/icons/1.png")
+        select_icon = select_icon.resize((32, 32), Image.LANCZOS)
+        select_icon = ImageTk.PhotoImage(select_icon)
+
+        compare_icon = Image.open("./assets/icons/2.png")
+        compare_icon = compare_icon.resize((32, 32), Image.LANCZOS)
+        compare_icon = ImageTk.PhotoImage(compare_icon)
+
+        result_icon = Image.open("./assets/icons/3.png")
+        result_icon = result_icon.resize((32, 32), Image.LANCZOS)
+        result_icon = ImageTk.PhotoImage(result_icon)
+
+        refesh_icon = Image.open("./assets/icons/4.png")
+        refesh_icon = refesh_icon.resize((32, 32), Image.LANCZOS)
+        refesh_icon = ImageTk.PhotoImage(refesh_icon)
+
+        change_theme_icon = Image.open("./assets/icons/5.png")
+        change_theme_icon = change_theme_icon.resize((32, 32), Image.LANCZOS)
+        change_theme_icon = ImageTk.PhotoImage(change_theme_icon)
+
+        folder_result_icon = Image.open("./assets/icons/6.png")
+        folder_result_icon = folder_result_icon.resize((32, 32), Image.LANCZOS)
+        folder_result_icon = ImageTk.PhotoImage(folder_result_icon)
+
+        self.text_area = tk.Text(self.root, wrap=tk.WORD, height=26, width=70)
         self.text_area.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
         # Hàng 1
@@ -38,32 +64,48 @@ class App:
         self.frame1.configure(bg="#333333")
         self.frame1.grid(row=1, column=0, columnspan=4, padx=10, pady=1)
         
-        self.button1 = tk.Button(self.frame1, text="Chọn Folder 1", command=self.select_folder1)
+        button_font = ("Arial", 12)
+        button_bg_color = "#3498db"
+        button_fg_color = "white"
+
+        # Đường viền (border) cho các button
+        button_borderwidth = 2
+        button_relief = "groove"  # Loại border
+
+        self.button1 = tk.Button(self.frame1, text="Chọn Folder 1", command=self.select_folder1, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=select_icon, compound="left")
+        self.button1.image = select_icon  # Giữ tham chiếu đến biểu tượng
         self.button1.grid(row=0, column=0, padx=10, pady=10)
 
-        self.button2 = tk.Button(self.frame1, text="Chọn Folder 2", command=self.select_folder2)
+        self.button2 = tk.Button(self.frame1, text="Chọn Folder 2", command=self.select_folder2, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=select_icon, compound="left")
+        self.button2.image = select_icon  # Giữ tham chiếu đến biểu tượng
         self.button2.grid(row=0, column=1, padx=10, pady=10)
 
-        self.compare_button = tk.Button(self.frame1, text="So sánh từng cặp", command=self.compare_pairs)
+        self.compare_button = tk.Button(self.frame1, text="So sánh từng cặp", command=self.compare_pairs, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=compare_icon, compound="left")
+        self.compare_button.image = compare_icon  # Giữ tham chiếu đến biểu tượng
         self.compare_button.grid(row=0, column=2, padx=10, pady=10)
 
         # Hàng 2
         self.frame2 = tk.Frame(self.root)
         self.frame2.configure(bg="#333333")
         self.frame2.grid(row=2, column=0, columnspan=4, padx=10, pady=1)
-        
-        self.result_button = tk.Button(self.frame2, text="Hiển Thị Kết Quả", command=self.display_paths)
+
+        self.result_button = tk.Button(self.frame2, text="Hiển Thị Kết Quả", command=self.display_paths, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=result_icon, compound="left")
+        self.result_button.image = result_icon  # Giữ tham chiếu đến biểu tượng
         self.result_button.grid(row=0, column=0, padx=10, pady=10)
         self.result_button.config(state=tk.DISABLED)
 
-        self.refresh_button = tk.Button(self.frame2, text="Làm mới", command=self.refresh)
+        self.refresh_button = tk.Button(self.frame2, text="Làm mới", command=self.refresh, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=refesh_icon, compound="left")
+        self.refresh_button.image = refesh_icon  # Giữ tham chiếu đến biểu tượng
         self.refresh_button.grid(row=0, column=1, padx=10, pady=10)
 
-        self.theme_button = tk.Button(self.frame2, text="Đổi Theme", command=self.toggle_theme)
+        self.theme_button = tk.Button(self.frame2, text="Đổi Theme", command=self.toggle_theme, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=change_theme_icon, compound="left")
+        self.theme_button.image = change_theme_icon  # Giữ tham chiếu đến biểu tượng
         self.theme_button.grid(row=0, column=2, padx=10, pady=10)
 
-        self.open_folder_button = tk.Button(self.frame2, text="File kết quả", command=self.open_folder)
+        self.open_folder_button = tk.Button(self.frame2, text="File kết quả", command=self.open_folder, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=folder_result_icon, compound="left")
+        self.open_folder_button.image = folder_result_icon  # Giữ tham chiếu đến biểu tượng
         self.open_folder_button.grid(row=0, column=3, padx=10, pady=10)
+
 
         self.update_ui()
 
@@ -109,7 +151,7 @@ class App:
     def compare_pairs(self):
         self.template_json = {}
         self.folder_all_path = filedialog.askdirectory()
-        print("Folde:", self.folder1_path)
+        print("Folder path:", self.folder_all_path)
         self.template_json['folder'] = self.folder_all_path
         self.set_textarea(self.template_json)
 
