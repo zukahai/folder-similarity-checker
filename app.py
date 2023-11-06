@@ -58,6 +58,7 @@ class App:
 
         self.text_area = tk.Text(self.root, wrap=tk.WORD, height=26, width=70)
         self.text_area.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+        self.text_area.bind("<KeyPress>", lambda e: "break")
 
         # Hàng 1
         self.frame1 = tk.Frame(self.root)
