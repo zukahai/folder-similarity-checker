@@ -3,6 +3,7 @@ import os
 from util import Util
 import time
 import re
+import json
 
 class HaiZuka:
     def __init__(self):
@@ -13,7 +14,6 @@ class HaiZuka:
         #trung bình rate
         rate = []
         length = 0
-        print(self.json_result)
         for file in self.json_result['files']:
             leng12 = (self.json_result['files'][file]['length1'] + self.json_result['files'][file]['length2']) / 2
             rate.append(self.json_result['files'][file]['rate'] * leng12)
@@ -23,6 +23,9 @@ class HaiZuka:
         self.json_result['mean_rate'] = mean_rate
         self.json_result['folder1'] = folder1.split('\\')[-1].split('/')[-1]
         self.json_result['folder2'] = folder2.split('\\')[-1].split('/')[-1]
+        
+        print('\n================= Result ==================\n', json.dumps(self.json_result, indent=4))
+
         return self.json_result
         
 
@@ -37,7 +40,7 @@ class HaiZuka:
                 print("File: ", file)
                 similaritie = HaiZuka.similarities_file(folder1 + '/' + file, folder2 + '/' + file)
                 self.json_result['files'][prefix + '/' + file] = similaritie
-                print(similaritie)
+                print(json.dumps(similaritie, indent=4))
             # kiểm tra file có phải 1 folder không
             elif os.path.isdir(folder1 + '/' + file) and os.path.isdir(folder2 + '/' + file):
                 print("Folder: ", file)
