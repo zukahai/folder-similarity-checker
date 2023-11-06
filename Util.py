@@ -2,6 +2,9 @@ import json
 import random
 import codecs
 from docx import Document
+import pandas as pd
+import math
+from PIL import Image
 
 class Util:
     def __init__(self):
@@ -12,6 +15,10 @@ class Util:
         try:
             if (Util.is_word_file(path)):
                 return Util.read_word_file(path)
+            if (Util.is_excel_file(path)):
+                return Util.read_excel_file(path)
+            if (Util.is_image_file(path)):
+                return Util.read_image(path)
             return Util.read_file_default(path)
         except:
             return ""
@@ -21,15 +28,43 @@ class Util:
         with codecs.open(path, 'r', encoding='utf-8') as file:
             java_code = file.read()
         return java_code
-    
+
+
     @staticmethod
     def read_word_file(path):
         doc = Document(path)
         text = ""
         for paragraph in doc.paragraphs:
             text += paragraph.text + "\n"
-        print(text)
         return text
+    
+    def read_excel_file(excel_file):
+        try:
+            df = pd.read_excel(excel_file)
+            text_data = df.to_string(index=False, header=False)
+            return text_data
+        except Exception as e:
+            return str(e)
+        
+    def read_image(image_path, step=1):
+        try:
+            img = Image.open(image_path)
+            width, height = img.size
+            pixel_matrix = []
+            length_taget = 1000
+            step = 1 if math.sqrt((width * height) // length_taget) < 1 else math.sqrt((width * height) // length_taget)
+            step = (int) (step)
+            for y in range(0, height, step):
+                for x in range(0, width, step):
+                    pixel = img.getpixel((x, y))
+                    pixel_value = int(''.join(map(str, pixel)))
+                    pixel_matrix.append(pixel_value)
+
+            matrix_text = ' '.join(map(str, pixel_matrix))
+            return matrix_text
+        except Exception as e:
+            print(e)
+            return str(e)
 
     @staticmethod
     def write_json_utf8(path, data):  # Sửa tên biến thành "data"
@@ -39,6 +74,14 @@ class Util:
     @staticmethod
     def is_word_file(file_path):
         return file_path.lower().endswith(".docx")
+    
+    @staticmethod
+    def is_excel_file(file_path):
+        return file_path.lower().endswith((".xls", ".xlsx", ".xlsm", ".xlsb"))
+    
+    @staticmethod
+    def is_image_file(file_path):
+        return file_path.lower().endswith((".png", ".jpg", ".jpeg"))
 
     @staticmethod
     def info():

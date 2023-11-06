@@ -16,8 +16,6 @@ module-info.java
 *.exe
 *.prob
 .testcase
-*.png
-*.jpg
 *.zip
 *.pyc
 *.ini

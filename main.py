@@ -55,7 +55,7 @@ class HaiZuka:
         p = Util.read_file(file2)
         words_s = re.findall(r'\b\w+\b', s)
         words_p = re.findall(r'\b\w+\b', p)
-        print(len(s), len(p))
+        print(len(words_s), len(words_p))
         similarities =  HaiZuka.similarities_words(words_s, words_p)
         return similarities
 
