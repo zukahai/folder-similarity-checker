@@ -39,7 +39,7 @@ frame = tk.Frame(app)
 frame.pack()
 
 # Tải hình ảnh từ tệp ảnh (đảm bảo thay thế 'your_image_path' bằng đường dẫn đến tệp ảnh thực tế)
-image_path = 'https://raw.githubusercontent.com/zukahai/folder-similarity-checker/main/demo/fsc2.png'
+image_path = 'https://raw.githubusercontent.com/zukahai/folder-similarity-checker/main/assets/demo/fsc2.png'
 image = Image.open(requests.get(image_path, stream=True).raw)
 image = ImageTk.PhotoImage(image)
 
@@ -57,7 +57,7 @@ icon_frame = tk.Frame(frame)
 icon_frame.pack()
 
 # Tải hình ảnh biểu tượng GitHub (thay thế 'github_icon.png' bằng đường dẫn đến biểu tượng GitHub)
-image_path = 'https://raw.githubusercontent.com/zukahai/folder-similarity-checker/main/demo/github_icon.png'
+image_path = 'https://raw.githubusercontent.com/zukahai/folder-similarity-checker/main/assets/demo/github_icon.png'
 github_icon = Image.open(requests.get(image_path, stream=True).raw)
 github_icon = ImageTk.PhotoImage(github_icon)
 
@@ -66,7 +66,7 @@ github_button = tk.Button(icon_frame, image=github_icon, command=lambda: open_li
 github_button.pack(side=tk.LEFT, padx=10)
 
 # Tải hình ảnh biểu tượng Facebook (thay thế 'facebook_icon.png' bằng đường dẫn đến biểu tượng Facebook)
-image_path = 'https://raw.githubusercontent.com/zukahai/folder-similarity-checker/main/demo/facebook_icon.png'
+image_path = 'https://raw.githubusercontent.com/zukahai/folder-similarity-checker/main/assets/demo/facebook_icon.png'
 facebook_icon = Image.open(requests.get(image_path, stream=True).raw)
 facebook_icon = ImageTk.PhotoImage(facebook_icon)
 
