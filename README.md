@@ -24,7 +24,7 @@
 
 To install **Folder Similarity Checker**, follow these steps:
 
-1. [Download the installation file](https://github.com/zukahai/check-similarities-between-folders/raw/main/check-similarities-between-folders%20setup.exe) of Folder Similarity Checker.
+1. [Download the installation file](https://drive.google.com/file/d/1K_NqP5sS4d2VaG0uL7x5mwJxOYtKUnHm/view?usp=sharing) of Folder Similarity Checker.
 
 2. Run the downloaded executable file and follow the on-screen instructions.
 
