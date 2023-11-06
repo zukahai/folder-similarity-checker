@@ -4,3 +4,4 @@ build\
 app.spec
 results/*.json
 check-similarities-between-folders setup.exe
+folder-similarity-checker setup.exe
