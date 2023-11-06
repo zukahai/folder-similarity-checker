@@ -12,11 +12,14 @@ class HaiZuka:
         self.try_similarities(folder1, folder2, '')
         #trung bình rate
         rate = []
+        length = 0
         print(self.json_result)
         for file in self.json_result['files']:
-            rate.append(self.json_result['files'][file]['rate'])
+            leng12 = (self.json_result['files'][file]['length1'] + self.json_result['files'][file]['length2']) / 2
+            rate.append(self.json_result['files'][file]['rate'] * leng12)
+            length += leng12
 
-        mean_rate = 0 if len(rate) == 0 else sum(rate)/len(rate)
+        mean_rate = 0 if len(rate) == 0 else sum(rate) / length
         self.json_result['mean_rate'] = mean_rate
         self.json_result['folder1'] = folder1.split('\\')[-1].split('/')[-1]
         self.json_result['folder2'] = folder2.split('\\')[-1].split('/')[-1]
