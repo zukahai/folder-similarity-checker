@@ -2,3 +2,4 @@ __pycache__
 build\
 *.spec
 app.spec
+check-similarities-between-folders setup.exe
