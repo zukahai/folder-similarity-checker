@@ -1,0 +1,23 @@
+{
+    "index": 2,
+    "themes": [
+        {
+            "fg": "#F3EEEA",
+            "textarea": "#EBE3D5",
+            "frame": "#B0A695",
+            "bg": "#776B5D"
+        },
+        {
+            "fg": "#706233",
+            "textarea": "#B0926A",
+            "frame": "#E1C78F",
+            "bg": "#FAE7C9"
+        },
+        {
+            "fg": "#B6FFFA",
+            "textarea": "#98E4FF",
+            "frame": "#80B3FF",
+            "bg": "#687EFF"
+        }
+    ]
+}

@@ -8,6 +8,7 @@ import os
 import ctypes
 import sys
 from PIL import Image, ImageTk
+from ttkthemes import ThemedStyle
 
 class App:
     def __init__(self, root):
@@ -17,10 +18,20 @@ class App:
         # self.root.resizable(False, False)
         self.root.geometry("600x570+{}+{}".format(self.root.winfo_screenwidth() // 2 - 600 // 2, self.root.winfo_screenheight() // 2 - 600 // 2))
 
+        self.style = ThemedStyle(self.root)
+        self.style.set_theme("scidblue")
+
         self.folder1_path = ""
         self.folder2_path = ""
         self.folder_all_path = ""
         self.dark_mode = True
+
+        json_data = Util.read_file_json("theme.json")
+        self.index_theme = int(json_data["index"]) - 1
+        #https://colorhunt.co/palette/b6fffa98e4ff80b3ff687eff
+        self.theme = json_data["themes"]
+
+        print(Util.read_file_json("theme.json"))
 
         self.template_json = {
             "folder1": "",
@@ -66,8 +77,8 @@ class App:
         self.frame1.grid(row=1, column=0, columnspan=4, padx=10, pady=1)
         
         button_font = ("Arial", 12)
-        button_bg_color = "#3498db"
-        button_fg_color = "white"
+        button_bg_color = "#776B5D"
+        button_fg_color = "#F3EEEA"
 
         # Đường viền (border) cho các button
         button_borderwidth = 2
@@ -116,22 +127,26 @@ class App:
         self.update_ui()
 
     def update_ui(self):
-        if self.dark_mode:
-            self.frame1.configure(bg="#333333")
-            self.frame2.configure(bg="#333333")
-            self.root.configure(bg="#333333")
-            self.text_area.configure(bg="#444444", fg="#FFFFFF")
-            button_style = {"bg": "#444444", "fg": "#FFFFFF"}
-        else:
-            self.root.configure(bg="white")
-            self.frame1.configure(bg="white")
-            self.frame2.configure(bg="white")
-            self.text_area.configure(bg="lightgray", fg="black")
-            button_style = {"bg": "lightgray", "fg": "black"}
+        self.index_theme += 1
+        self.index_theme %= len(self.theme)
+        bg = self.theme[self.index_theme]["bg"]
+        fg = self.theme[self.index_theme]["fg"]
+        text_area_bg = self.theme[self.index_theme]["textarea"]
+        frame_bg = self.theme[self.index_theme]["frame"]
+        self.frame1.configure(bg=frame_bg)
+        self.frame2.configure(bg=frame_bg)
+        self.root.configure(bg=frame_bg)
+        self.text_area.configure(bg=text_area_bg, fg=fg)
 
-        for widget in self.root.winfo_children():
-            if isinstance(widget, tk.Button):
-                widget.configure(**button_style)
+        self.refresh_button.configure(bg=bg, fg=fg)
+        self.result_button.configure(bg=bg, fg=fg)
+        self.compare_button.configure(bg=bg, fg=fg)
+        self.button1.configure(bg=bg, fg=fg)
+        self.button2.configure(bg=bg, fg=fg)
+        self.theme_button.configure(bg=bg, fg=fg)
+        self.open_folder_button.configure(bg=bg, fg=fg)
+
+        Util.write_json_utf8("theme.json", {'index': self.index_theme, 'themes': self.theme})
 
     def select_folder1(self):
         self.folder1_path = filedialog.askdirectory()
@@ -220,7 +235,7 @@ if __name__ == "__main__":
             # If not running as administrator, relaunch as administrator
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
             sys.exit()
-    run_as_admin()
+    # run_as_admin()
     root = tk.Tk()
     app = App(root)
     root.mainloop()

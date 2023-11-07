@@ -82,6 +82,16 @@ class Util:
     @staticmethod
     def is_image_file(file_path):
         return file_path.lower().endswith((".png", ".jpg", ".jpeg"))
+    
+    @staticmethod
+    def read_file_json(path):
+        with open(path, "r") as file:
+            data = json.load(file)
+            return data
+    @staticmethod   
+    def write_to_json(data, filename):
+        with open(filename, "w") as file:
+            json.dump(data, file, indent=4)
 
     @staticmethod
     def info():
