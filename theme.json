@@ -1,5 +1,5 @@
 {
-    "index": 2,
+    "index": 11,
     "themes": [
         {
             "fg": "#F3EEEA",
@@ -18,6 +18,60 @@
             "textarea": "#98E4FF",
             "frame": "#80B3FF",
             "bg": "#687EFF"
+        },
+        {
+            "fg": "#0F0F0F",
+            "textarea": "#47A992",
+            "frame": "#005B41",
+            "bg": "#008170"
+        },
+        {
+            "fg": "#FFF5E0",
+            "textarea": "#FF6969",
+            "frame": "#C70039",
+            "bg": "#D80032"
+        },
+        {
+            "fg": "#2D2424",
+            "textarea": "#E0C097",
+            "frame": "#B85C38",
+            "bg": "#5C3D2E"
+        },
+        {
+            "fg": "#371B58",
+            "textarea": "#4C3575",
+            "frame": "#5B4B8A",
+            "bg": "#7858A6"
+        },
+        {
+            "fg": "#353400",
+            "textarea": "#A9A700",
+            "frame": "#898700",
+            "bg": "#A9A700"
+        },
+        {
+            "fg": "#919090",
+            "textarea": "#5D5D5D",
+            "frame": "#202020",
+            "bg": "#030202"
+        },
+        {
+            "fg": "#F2DEEE",
+            "textarea": "#FFB9F2",
+            "frame": "#FF85E8",
+            "bg": "#FD2CD5"
+        },
+        {
+            "fg": "#5CBCA4",
+            "textarea": "#36A287",
+            "frame": "#1B9778",
+            "bg": "#00634A"
+        },
+        {
+            "fg": "#c2edf0",
+            "textarea": "#262335",
+            "frame": "#241b2f",
+            "bg": "#614d85"
         }
     ]
 }

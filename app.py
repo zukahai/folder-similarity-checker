@@ -28,7 +28,7 @@ class App:
 
         json_data = Util.read_file_json("theme.json")
         self.index_theme = int(json_data["index"]) - 1
-        #https://colorhunt.co/palette/b6fffa98e4ff80b3ff687eff
+        #https://paletton.com/#uid=13a0u0kqft9gjCWllvetvo4wOj5
         self.theme = json_data["themes"]
 
         print(Util.read_file_json("theme.json"))
