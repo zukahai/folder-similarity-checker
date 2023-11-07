@@ -235,7 +235,7 @@ if __name__ == "__main__":
             # If not running as administrator, relaunch as administrator
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
             sys.exit()
-    # run_as_admin()
+    run_as_admin()
     root = tk.Tk()
     app = App(root)
     root.mainloop()
