@@ -66,11 +66,11 @@ class HaiZuka:
     def read_other_file(self, folder1, folder2, list_files_1, list_files_2):
         for file in list_files_1:
             if file not in list_files_2 and os.path.isfile(folder1 + '/' + file):
-                length = len(Util.read_file(folder1 + '/' + file))
+                length = len(re.findall(r'\b\w+\b', Util.read_file(folder1 + '/' + file)))
                 self.json_result['files_other'][self.folder_1_name][file] = length
         for file in list_files_2:
             if file not in list_files_1 and os.path.isfile(folder2 + '/' + file):
-                length = len(Util.read_file(folder2 + '/' + file))
+                length = len(re.findall(r'\b\w+\b', Util.read_file(folder2 + '/' + file)))
                 self.json_result['files_other'][self.folder_2_name][file] = length
     @staticmethod
     def read_folder(folder):

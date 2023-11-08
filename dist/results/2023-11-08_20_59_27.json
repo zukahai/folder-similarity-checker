@@ -1,0 +1,32 @@
+{
+    "files": {
+        "/2023-11-06_18_15_46.json": {
+            "similarity": 1,
+            "length1": 29,
+            "length2": 29,
+            "rate": 1
+        },
+        "/a.docx": {
+            "similarity": 1,
+            "length1": 96,
+            "length2": 96,
+            "rate": 1
+        },
+        "/Book1.xlsx": {
+            "similarity": 1,
+            "length1": 3,
+            "length2": 3,
+            "rate": 1
+        }
+    },
+    "files_other": {
+        "A": {
+            "Java-2023.xlsx": 46841
+        },
+        "C": {}
+    },
+    "similary_rate": 1.0,
+    "mean_rate": 0.002725201728799847,
+    "folder1": "A",
+    "folder2": "C"
+}
