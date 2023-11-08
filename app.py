@@ -7,7 +7,7 @@ from scan import check_folder
 import os
 import ctypes
 import sys
-from PIL import Image, ImageTk, ImageFont
+from PIL import Image, ImageTk
 from ttkthemes import ThemedStyle
 
 class App:
@@ -31,8 +31,6 @@ class App:
         #https://paletton.com/#uid=13a0u0kqft9gjCWllvetvo4wOj5
         self.theme = json_data["themes"]
 
-        print(Util.read_file_json("theme.json"))
-
         self.template_json = {
             "folder1": "",
             "folder2": "",
@@ -42,10 +40,6 @@ class App:
 
     def create_ui(self):
         Util.info()
-
-        font_roboto_image = ImageFont.truetype('./assets/fonts/Roboto-Bold.ttf', 12)
-        font_roboto = root.tk.call('font', 'create', 'my_font', '-family', font_roboto_image.getname(), '-size', font_roboto_image.size)
-
         select_icon = Image.open("./assets/icons/1.png")
         select_icon = select_icon.resize((32, 32), Image.LANCZOS)
         select_icon = ImageTk.PhotoImage(select_icon)
@@ -82,7 +76,7 @@ class App:
         self.frame1.grid(row=1, column=0, columnspan=4, padx=10, pady=1)
         self.frame1.grid_columnconfigure(0, weight=1)
         
-        button_font = (font_roboto, 12)
+        button_font = ("Arial", 12)
         button_bg_color = "#776B5D"
         button_fg_color = "#F3EEEA"
 
@@ -229,7 +223,7 @@ class App:
         self.text_area.tag_configure("true_text", foreground=self.theme[self.index_theme]["fg_textarea_1"])
         self.text_area.tag_configure("false_text", foreground=self.theme[self.index_theme]["fg_textarea_2"])
         self.text_area.tag_configure("yellow_text", foreground="yellow")
-        self.text_area.tag_configure("custom_bold", font=("font_roboto", 10, "bold"))
+        self.text_area.tag_configure("custom_bold", font=("Arial", 10, "bold"))
         
         flag = False
         for ch in str(formatted_json):
@@ -270,7 +264,7 @@ if __name__ == "__main__":
             # If not running as administrator, relaunch as administrator
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
             sys.exit()
-    # run_as_admin()
+    run_as_admin()
     root = tk.Tk()
     app = App(root)
     root.mainloop()
