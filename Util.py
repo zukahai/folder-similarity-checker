@@ -40,9 +40,17 @@ class Util:
     
     def read_excel_file(excel_file):
         try:
-            df = pd.read_excel(excel_file)
-            text_data = df.to_string(index=False, header=False)
-            return text_data
+            xls = pd.ExcelFile(excel_file)
+            sheet_names = xls.sheet_names
+
+            all_data = ""
+            for sheet_name in sheet_names:
+                df = xls.parse(sheet_name)
+                text_data = df.to_string(index=False, header=False)
+                all_data += text_data
+
+            print(all_data)
+            return all_data
         except Exception as e:
             return str(e)
         
