@@ -7,7 +7,7 @@ from scan import check_folder
 import os
 import ctypes
 import sys
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageFont
 from ttkthemes import ThemedStyle
 
 class App:
@@ -43,6 +43,9 @@ class App:
     def create_ui(self):
         Util.info()
 
+        font_roboto_image = ImageFont.truetype('./assets/fonts/Roboto-Bold.ttf', 12)
+        font_roboto = root.tk.call('font', 'create', 'my_font', '-family', font_roboto_image.getname(), '-size', font_roboto_image.size)
+
         select_icon = Image.open("./assets/icons/1.png")
         select_icon = select_icon.resize((32, 32), Image.LANCZOS)
         select_icon = ImageTk.PhotoImage(select_icon)
@@ -71,12 +74,14 @@ class App:
         self.text_area.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
         self.text_area.bind("<KeyPress>", lambda e: "break")
 
+
+
         # Hàng 1
         self.frame1 = tk.Frame(self.root)
         self.frame1.configure(bg="#333333")
         self.frame1.grid(row=1, column=0, columnspan=4, padx=10, pady=1)
         
-        button_font = ("Arial", 12)
+        button_font = (font_roboto, 12)
         button_bg_color = "#776B5D"
         button_fg_color = "#F3EEEA"
 
@@ -210,7 +215,30 @@ class App:
     def set_textarea(self, text):
         formatted_json = json.dumps(text, indent=4)
         self.text_area.delete(1.0, tk.END)
-        self.text_area.insert(tk.END, formatted_json)
+        
+        self.text_area.tag_configure("red_text", foreground="red")
+        self.text_area.tag_configure("bracket_text", foreground="#34ebde")
+        self.text_area.tag_configure("dot_text", foreground="#f95c8f")
+        self.text_area.tag_configure("red_text", foreground="red")
+        self.text_area.tag_configure("yellow_text", foreground="yellow")
+
+
+        self.text_area.tag_configure("custom_bold", font=("font_roboto", 10, "bold"))
+        flag = False
+        for ch in str(formatted_json):
+            if ch in ['{', '}']:
+                self.text_area.insert("insert", ch, "custom_bold bracket_text")
+            elif ch in ['/', '[', ']']:
+                self.text_area.insert("insert", ch, "custom_bold yellow_text")
+            else:
+                if ch == '"':
+                    flag = not flag
+                    self.text_area.insert("insert", ch, "custom_bold red_text")
+                else:
+                    if flag:
+                        self.text_area.insert("insert", ch, "custom_bold dot_text")
+                    else:
+                        self.text_area.insert("insert", ch, "custom_bold")
     
     def disable_buttons(self):
         self.button1.config(state=tk.NORMAL)
@@ -235,7 +263,7 @@ if __name__ == "__main__":
             # If not running as administrator, relaunch as administrator
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
             sys.exit()
-    run_as_admin()
+    # run_as_admin()
     root = tk.Tk()
     app = App(root)
     root.mainloop()
