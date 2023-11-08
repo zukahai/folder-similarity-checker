@@ -1,77 +1,125 @@
 {
-    "index": 11,
+    "index": 12,
     "themes": [
         {
-            "fg": "#F3EEEA",
-            "textarea": "#EBE3D5",
-            "frame": "#B0A695",
-            "bg": "#776B5D"
-        },
-        {
-            "fg": "#706233",
-            "textarea": "#B0926A",
-            "frame": "#E1C78F",
-            "bg": "#FAE7C9"
-        },
-        {
-            "fg": "#B6FFFA",
-            "textarea": "#98E4FF",
-            "frame": "#80B3FF",
-            "bg": "#687EFF"
-        },
-        {
-            "fg": "#0F0F0F",
-            "textarea": "#47A992",
-            "frame": "#005B41",
-            "bg": "#008170"
-        },
-        {
-            "fg": "#FFF5E0",
-            "textarea": "#FF6969",
-            "frame": "#C70039",
-            "bg": "#D80032"
-        },
-        {
-            "fg": "#2D2424",
-            "textarea": "#E0C097",
-            "frame": "#B85C38",
-            "bg": "#5C3D2E"
-        },
-        {
-            "fg": "#371B58",
-            "textarea": "#4C3575",
-            "frame": "#5B4B8A",
-            "bg": "#7858A6"
-        },
-        {
-            "fg": "#353400",
-            "textarea": "#A9A700",
-            "frame": "#898700",
-            "bg": "#A9A700"
-        },
-        {
-            "fg": "#919090",
-            "textarea": "#5D5D5D",
-            "frame": "#202020",
-            "bg": "#030202"
-        },
-        {
-            "fg": "#F2DEEE",
-            "textarea": "#FFB9F2",
-            "frame": "#FF85E8",
-            "bg": "#FD2CD5"
-        },
-        {
-            "fg": "#5CBCA4",
-            "textarea": "#36A287",
-            "frame": "#1B9778",
-            "bg": "#00634A"
-        },
-        {
-            "fg": "#c2edf0",
             "textarea": "#262335",
-            "frame": "#241b2f",
-            "bg": "#614d85"
+            "fg_textarea_1": "#f95c8f",
+            "fg_textarea_2": "#eff8f3",
+            "bg": "#241b2f",
+            "fg": "#c2edf0",
+            "bg_button": "#614d85"
+        },
+        {
+            "textarea": "#000000",
+            "fg_textarea_1": "#f8f8f8",
+            "fg_textarea_2": "#067f37",
+            "bg": "#444654",
+            "fg": "#fff3e4",
+            "bg_button": "#343541"
+        },
+        {
+            "textarea": "#00FCD9",
+            "fg_textarea_1": "#7F01BA",
+            "fg_textarea_2": "#947900",
+            "bg": "#00DCBE",
+            "fg": "#1BF7D9",
+            "bg_button": "#007968"
+        },
+        {
+            "textarea": "#282c34",
+            "fg_textarea_1": "#c74c46",
+            "fg_textarea_2": "#7bb86d",
+            "bg": "#21252b",
+            "fg": "#d2d9d3",
+            "bg_button": "#404754"
+        },
+        {
+            "textarea": "#282a36",
+            "fg_textarea_1": "#6cc9cd",
+            "fg_textarea_2": "#b4d074",
+            "bg": "#21222c",
+            "fg": "#d5c7af",
+            "bg_button": "#44475a"
+        },
+        {
+            "textarea": "#0e1419",
+            "fg_textarea_1": "#e8e061",
+            "fg_textarea_2": "#2596be",
+            "bg": "#0e1419",
+            "fg": "#d6c79e",
+            "bg_button": "#574473"
+        },
+        {
+            "textarea": "#ffffff",
+            "fg_textarea_1": "#5bb6e9",
+            "fg_textarea_2": "#c897c2",
+            "bg": "#ffffff",
+            "fg": "#f5d7d0",
+            "bg_button": "#d73a49"
+        },
+        {
+            "textarea": "#91CE91",
+            "fg_textarea_1": "#2525DB",
+            "fg_textarea_2": "#261C00",
+            "bg": "#368C36",
+            "fg": "#91CE91",
+            "bg_button": "#054C05"
+        },
+        {
+            "textarea": "#E3E3E3",
+            "fg_textarea_1": "#261C00",
+            "fg_textarea_2": "#2525DB",
+            "bg": "#B6B6B6",
+            "fg": "#5A5959",
+            "bg_button": "#FFFFFF"
+        },
+        {
+            "textarea": "#F30089",
+            "fg_textarea_1": "#93FE00",
+            "fg_textarea_2": "#00FBFB",
+            "bg": "#CE0075",
+            "fg": "#FD008F",
+            "bg_button": "#800048"
+        },
+        {
+            "textarea": "#F5F6F6",
+            "fg_textarea_1": "#140E0E",
+            "fg_textarea_2": "#180F0C",
+            "bg": "#7BA594",
+            "fg": "#080C10",
+            "bg_button": "#F5F6F6"
+        },
+        {
+            "textarea": "#ffffff",
+            "fg_textarea_1": "#c65190",
+            "fg_textarea_2": "#002fb9",
+            "bg": "#f7f8fa",
+            "fg": "#000005",
+            "bg_button": "#d4e2ff"
+        },
+        {
+            "textarea": "#161c2d",
+            "fg_textarea_1": "#dbb163",
+            "fg_textarea_2": "#9db85c",
+            "bg": "#1c2739",
+            "fg": "#c1c1c0",
+            "bg_button": "#39487e"
+        },
+        {
+            "textarea": "#f2f3f7",
+            "fg_textarea_1": "#292c91",
+            "fg_textarea_2": "#057445",
+            "bg": "#e4e6eb",
+            "fg": "#d7fbff",
+            "bg_button": "#3eb2c2"
+        },
+        {
+            "textarea": "#0a0c10",
+            "fg_textarea_1": "#67aefb",
+            "fg_textarea_2": "#d1d7c6",
+            "bg": "#0a0c10",
+            "fg": "#0a331a",
+            "bg_button": "#09b43a"
         }
     ]
 }
