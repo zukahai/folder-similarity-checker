@@ -9,20 +9,34 @@ class HaiZuka:
     def __init__(self):
         self.json_result = {}
         self.json_result['files'] = {}
+        self.json_result['files_other'] = {}
     def similarities_folder(self, folder1, folder2):
+        self.folder_1_name = folder1.split('\\')[-1].split('/')[-1]
+        self.folder_2_name = folder2.split('\\')[-1].split('/')[-1]
+        self.json_result['files_other'][self.folder_1_name] = {}
+        self.json_result['files_other'][self.folder_2_name] = {}
+
         self.try_similarities(folder1, folder2, '')
         #trung bình rate
-        rate = []
+        length_similary = 0
         length = 0
         for file in self.json_result['files']:
             leng12 = (self.json_result['files'][file]['length1'] + self.json_result['files'][file]['length2']) / 2
-            rate.append(self.json_result['files'][file]['rate'] * leng12)
+            length_similary += self.json_result['files'][file]['rate'] * leng12
             length += leng12
 
-        mean_rate = 0 if len(rate) == 0 else sum(rate) / length
+        similary_rate = length_similary / length
+        self.json_result['similary_rate'] = similary_rate
+
+        for file in self.json_result['files_other'][self.folder_1_name]:
+            length += self.json_result['files_other'][self.folder_1_name][file]
+        for file in self.json_result['files_other'][self.folder_2_name]:
+            length += self.json_result['files_other'][self.folder_2_name][file]
+        mean_rate = length_similary / length
+
         self.json_result['mean_rate'] = mean_rate
-        self.json_result['folder1'] = folder1.split('\\')[-1].split('/')[-1]
-        self.json_result['folder2'] = folder2.split('\\')[-1].split('/')[-1]
+        self.json_result['folder1'] = self.folder_1_name
+        self.json_result['folder2'] = self.folder_2_name
         
         print('\n================= Result ==================\n', json.dumps(self.json_result, indent=4))
 
@@ -30,7 +44,9 @@ class HaiZuka:
         
 
     def try_similarities(self, folder1, folder2, prefix):
+        print(folder1, folder2, prefix)
         list_files = HaiZuka.read_folder(folder1)
+        self.read_other_file(folder1, folder2, list_files, HaiZuka.read_folder(folder2))
         print(list_files)
         for file in list_files:
             if HaiZuka.is_path_ignored(file):
@@ -47,6 +63,15 @@ class HaiZuka:
                 self.try_similarities(folder1 + '/' + file, folder2 + '/' + file, prefix + '/' + file)
 
 
+    def read_other_file(self, folder1, folder2, list_files_1, list_files_2):
+        for file in list_files_1:
+            if file not in list_files_2 and os.path.isfile(folder1 + '/' + file):
+                length = len(Util.read_file(folder1 + '/' + file))
+                self.json_result['files_other'][self.folder_1_name][file] = length
+        for file in list_files_2:
+            if file not in list_files_1 and os.path.isfile(folder2 + '/' + file):
+                length = len(Util.read_file(folder2 + '/' + file))
+                self.json_result['files_other'][self.folder_2_name][file] = length
     @staticmethod
     def read_folder(folder):
         list_files = os.listdir(folder)

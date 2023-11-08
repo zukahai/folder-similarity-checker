@@ -49,7 +49,7 @@ class Util:
                 text_data = df.to_string(index=False, header=False)
                 all_data += text_data
 
-            print(all_data)
+            # print(all_data)
             return all_data
         except Exception as e:
             return str(e)
