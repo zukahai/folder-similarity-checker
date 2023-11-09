@@ -1,5 +1,5 @@
 {
-    "index": 5,
+    "index": 11,
     "themes": [
         {
             "textarea": "#262335",
@@ -74,14 +74,6 @@
             "bg_button": "#FFFFFF"
         },
         {
-            "textarea": "#F30089",
-            "fg_textarea_1": "#93FE00",
-            "fg_textarea_2": "#00FBFB",
-            "bg": "#CE0075",
-            "fg": "#FD008F",
-            "bg_button": "#800048"
-        },
-        {
             "textarea": "#F5F6F6",
             "fg_textarea_1": "#140E0E",
             "fg_textarea_2": "#180F0C",
@@ -120,6 +112,46 @@
             "bg": "#0a0c10",
             "fg": "#0a331a",
             "bg_button": "#09b43a"
+        },
+        {
+            "textarea": "#3474e3",
+            "fg_textarea_1": "#ffffff",
+            "fg_textarea_2": "#0192c0",
+            "bg": "#0566c4",
+            "fg": "#ffffff",
+            "bg_button": "#035285"
+        },
+        {
+            "textarea": "#ff5b77",
+            "fg_textarea_1": "#ffffff",
+            "fg_textarea_2": "#ff3366",
+            "bg": "#ff99aa",
+            "fg": "#000000",
+            "bg_button": "#ff3366"
+        },
+        {
+            "textarea": "#1e1e1e",
+            "fg_textarea_1": "#67aefb",
+            "fg_textarea_2": "#d1d7c6",
+            "bg": "#121212",
+            "fg": "#ffffff",
+            "bg_button": "#4a4a4a"
+        },
+        {
+            "textarea": "#ffffff",
+            "fg_textarea_1": "#3d87ff",
+            "fg_textarea_2": "#45bd62",
+            "bg": "#f0f2f5",
+            "fg": "#2c2a2d",
+            "bg_button": "#99a2a8"
+        },
+        {
+            "textarea": "#000000",
+            "fg_textarea_1": "#bb2866",
+            "fg_textarea_2": "#009a6c",
+            "bg": "#202123",
+            "fg": "#ffffff",
+            "bg_button": "#19c37d"
         }
     ]
 }

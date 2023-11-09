@@ -13,7 +13,7 @@ from ttkthemes import ThemedStyle
 class App:
     def __init__(self, root):
         self.root = root
-        self.root.title("Kiểm tra thư mục tương đồng | HaiZuka")
+        self.root.title("Folder Similarity Checker | HaiZuka")
         self.root.geometry("657x570")
         self.root.resizable(False, False)
         self.root.geometry("657x570+{}+{}".format(self.root.winfo_screenwidth() // 2 - 657 // 2, self.root.winfo_screenheight() // 2 - 600 // 2))
@@ -92,7 +92,7 @@ class App:
         self.button2.image = select_icon  # Giữ tham chiếu đến biểu tượng
         self.button2.grid(row=0, column=1, padx=10, pady=10)
 
-        self.compare_button = tk.Button(self.frame1, text="Compare each pair", command=self.compare_pairs, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=compare_icon, compound="left")
+        self.compare_button = tk.Button(self.frame1, text="Compare Each Pair", command=self.compare_pairs, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=compare_icon, compound="left")
         self.compare_button.image = compare_icon  # Giữ tham chiếu đến biểu tượng
         self.compare_button.grid(row=0, column=2, padx=10, pady=10)
 
@@ -264,7 +264,7 @@ if __name__ == "__main__":
             # If not running as administrator, relaunch as administrator
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
             sys.exit()
-    run_as_admin()
+    # run_as_admin()
     root = tk.Tk()
     app = App(root)
     root.mainloop()
