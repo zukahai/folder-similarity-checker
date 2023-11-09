@@ -4,7 +4,7 @@
 
 **Folder Similarity Checker** is a software application designed to help users compare the similarity between folders. This document provides an overview of the software, its features, and instructions for installation and usage.
 
-![Folder Similarity Checker](./assets/demo/fsc.png)
+<p align="center"> <img src="./assets/demo/fsc.png" alt="bg" /> </p>
 
 ## Features
 
@@ -78,7 +78,7 @@ To compare the similarity between folders, follow these steps:
 
 For a demonstration of **Folder Similarity Checker** and access to the installation file, please refer to the provided folder or link.
 
-![Folder Similarity Checker](./assets/demo/demo4.png)
+<p align="center"> <img src="./assets/demo/demo4.png" alt="bg" /> </p>
 
 ## Support
 
