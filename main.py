@@ -10,6 +10,7 @@ class HaiZuka:
         self.json_result = {}
         self.json_result['files'] = {}
         self.json_result['files_other'] = {}
+
     def similarities_folder(self, folder1, folder2):
         self.folder_1_name = folder1.split('\\')[-1].split('/')[-1]
         self.folder_2_name = folder2.split('\\')[-1].split('/')[-1]
@@ -21,18 +22,18 @@ class HaiZuka:
         length_similary = 0
         length = 0
         for file in self.json_result['files']:
-            leng12 = (self.json_result['files'][file]['length1'] + self.json_result['files'][file]['length2']) / 2
-            length_similary += self.json_result['files'][file]['rate'] * leng12
-            length += leng12
+            mean_length = (self.json_result['files'][file]['length1'] + self.json_result['files'][file]['length2']) / 2
+            length_similary += self.json_result['files'][file]['similarity']
+            length += mean_length
 
-        similary_rate = length_similary / length
+        similary_rate = length_similary / length if length != 0 else 0
         self.json_result['similary_rate'] = similary_rate
 
         for file in self.json_result['files_other'][self.folder_1_name]:
             length += self.json_result['files_other'][self.folder_1_name][file]
         for file in self.json_result['files_other'][self.folder_2_name]:
             length += self.json_result['files_other'][self.folder_2_name][file]
-        mean_rate = length_similary / length
+        mean_rate = length_similary / length if length != 0 else 0
 
         self.json_result['mean_rate'] = mean_rate
         self.json_result['folder1'] = self.folder_1_name
@@ -91,7 +92,7 @@ class HaiZuka:
     @staticmethod
     def similarities_words(string1, string2):
         if string1 == string2:
-            return {'similarity': 1, 'length1': len(string1), 'length2': len(string2), 'rate': 1}
+            return {'similarity': len(string1), 'length1': len(string1), 'length2': len(string2), 'rate': 1}
         string1 = ['x'] + string1
         string2 = ['x'] + string2
         a = [[0 for _ in range(len(string2))] for _ in range(len(string1))]
@@ -108,6 +109,30 @@ class HaiZuka:
         json['length2'] = len(string2)
         json['rate'] = 2 * max_str / (len(string1) + len(string2) - 2)
         return json
+    
+    # Kiển tra từng cặp folder
+    @staticmethod
+    def check_folders_pair(path):
+        haizuka = HaiZuka()
+        list_folder = haizuka.read_folder(path)
+
+        json_result = {}
+
+        list_folder = [x for x in list_folder if os.path.isdir(os.path.join(path, x))]
+        print('Folders: ', list_folder)
+
+        for i in range(0, len(list_folder) - 1):
+            for j in range(i + 1, len(list_folder)):
+                path_1 = os.path.join(path, list_folder[i])
+                path_2 = os.path.join(path, list_folder[j])
+                haizuka.__init__()
+                similarities = haizuka.similarities_folder(path_1, path_2)
+                json_result[list_folder[i] + '@' + list_folder[j]] = similarities
+
+        #sắp xếp theo mean_rate
+        json_result = sorted(json_result.items(), key=lambda x: x[1]['mean_rate'], reverse=True)
+
+        return json_result
 
 
     @staticmethod

@@ -3,7 +3,6 @@ from tkinter import filedialog
 import json
 from main import HaiZuka
 from util import Util
-from scan import check_folder
 import os
 import ctypes
 import sys
@@ -85,11 +84,11 @@ class App:
         button_borderwidth = 2
         button_relief = "groove"  # Loại border
 
-        self.button1 = tk.Button(self.frame1, text="Select Folder 1", command=self.select_folder1, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=select_icon, compound="left")
+        self.button1 = tk.Button(self.frame1, text="Choose Folder 1", command=self.select_folder1, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=select_icon, compound="left")
         self.button1.image = select_icon  # Giữ tham chiếu đến biểu tượng
         self.button1.grid(row=0, column=0, padx=10, pady=10)
 
-        self.button2 = tk.Button(self.frame1, text="Select Folder 2", command=self.select_folder2, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=select_icon, compound="left")
+        self.button2 = tk.Button(self.frame1, text="Choose Folder 2", command=self.select_folder2, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=select_icon, compound="left")
         self.button2.image = select_icon  # Giữ tham chiếu đến biểu tượng
         self.button2.grid(row=0, column=1, padx=10, pady=10)
 
@@ -120,9 +119,7 @@ class App:
         self.open_folder_button.image = folder_result_icon  # Giữ tham chiếu đến biểu tượng
         self.open_folder_button.grid(row=0, column=3, padx=10, pady=10)
 
-
         self.update_ui()
-
 
     def toggle_theme(self):
         self.dark_mode = not self.dark_mode
@@ -190,7 +187,7 @@ class App:
             self.set_textarea(similarities)
             haizuka.write_json_utf8()
         else:
-            similarities = check_folder(self.folder_all_path)
+            similarities = HaiZuka.check_folders_pair(self.folder_all_path)
             self.set_textarea(similarities)
             HaiZuka.write_json_utf8_2(similarities)
         self.disable_buttons()

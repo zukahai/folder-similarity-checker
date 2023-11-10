@@ -3528,7 +3528,6 @@
   ('runpy',
    'C:\\Users\\HAIZUKA\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\runpy.py',
    'PYMODULE'),
-  ('scan', 'G:\\folder-similarity-checker\\scan.py', 'PYMODULE'),
   ('scipy',
    'C:\\Users\\HAIZUKA\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\scipy\\__init__.py',
    'PYMODULE'),
