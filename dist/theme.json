@@ -152,6 +152,14 @@
             "bg": "#202123",
             "fg": "#ffffff",
             "bg_button": "#19c37d"
+        },
+        {
+            "textarea": "#010080",
+            "fg_textarea_1": "#fffd04",
+            "fg_textarea_2": "#01f3fa",
+            "bg": "#010080",
+            "fg": "#fcfe00",
+            "bg_button": "#01f3fa"
         }
     ]
 }

@@ -14,9 +14,10 @@ class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Folder Similarity Checker | HaiZuka")
-        self.root.geometry("657x570")
+        self.width = 583
+        self.root.geometry(str(self.width) + "x570")
         self.root.resizable(False, False)
-        self.root.geometry("657x570+{}+{}".format(self.root.winfo_screenwidth() // 2 - 657 // 2, self.root.winfo_screenheight() // 2 - 600 // 2))
+        self.root.geometry(str(self.width) + "x570+{}+{}".format(self.root.winfo_screenwidth() // 2 - self.width // 2, self.root.winfo_screenheight() // 2 - 600 // 2))
 
         self.style = ThemedStyle(self.root)
         self.style.set_theme("scidblue")
@@ -102,7 +103,7 @@ class App:
         self.frame2.grid(row=2, column=0, columnspan=4, padx=10, pady=1)
         self.frame2.grid_columnconfigure(0, weight=1)
 
-        self.result_button = tk.Button(self.frame2, text="Display Results", command=self.display_paths, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=result_icon, compound="left")
+        self.result_button = tk.Button(self.frame2, text="Start", command=self.display_paths, font=button_font, bg=button_bg_color, fg=button_fg_color, borderwidth=button_borderwidth, relief=button_relief, image=result_icon, compound="left")
         self.result_button.image = result_icon  # Giữ tham chiếu đến biểu tượng
         self.result_button.grid(row=0, column=0, padx=10, pady=10)
         self.result_button.config(state=tk.DISABLED)
