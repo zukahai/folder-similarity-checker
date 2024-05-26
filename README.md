@@ -2,6 +2,7 @@
 
 ## Introduction
 
+
 **Folder Similarity Checker** is a software application designed to help users compare the similarity between folders. This document provides an overview of the software, its features, and instructions for installation and usage.
 
 <p align="center"> <img src="./assets/demo/fsc.png" alt="bg" /> </p>
